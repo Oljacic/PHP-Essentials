@@ -173,10 +173,48 @@
 //DateTime periods
 
 /*
- *
+ * Setting start date, interval, end date
+ * It is simple!
  */
 
+//$start = new DateTime;
 
+//$start->setTime(8, 0, 0);
+
+//$end = clone $start;
+//$end->setTime(20, 0, 0);
+
+//$interval = new DateInterval('PT30M');
+
+//$dateRange = new DatePeriod($start, $interval, $end);
+
+//foreach ($dateRange as $date) {
+//    var_dump($date);
+//}
+
+//Creating form
+?>
+
+<!--<!doctype html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <title>Document</title>-->
+<!--</head>-->
+<!--<body>-->
+<!---->
+<!--<select name="time" id="time">-->
+<!--    --><?php //foreach ($dateRange as $date): ?>
+<!--        <option value="--><?php //echo $date->format('H:i:s'); ?><!--">--><?php //echo $date->format('H:i:s'); ?><!--</option>-->
+<!--    --><?php //endforeach; ?>
+<!--</select>-->
+<!---->
+<!--</body>-->
+<!--</html>-->
+
+<?php
 
 //Useful functions
 
@@ -184,10 +222,22 @@
  *
  */
 
+time(); //unix timestamp
+microtime();//Microtime for generating random things, past a parameter bool true and you will get float, first is unix timestamp other is microtime
+
+date('d M Y');// you can use format
+checkdate(7, 31, 2018);//checking date values are true or false, always is good to check date before manipulate with it
+
+foreach (timezone_identifiers_list() as $timezone) {
+    echo $timezone. '<br>';
+}
+
 
 //Project: Human difference calculator
 
 /*
  *
  */
+
+
 
