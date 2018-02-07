@@ -1,7 +1,6 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: SOul
  * Date: 2/5/2018
  * Time: 2:01 PM
  */
@@ -105,37 +104,70 @@
 //Differences
 
 /*
- *
+ * Get difference between two dates
  */
 
-$date = new DateTime;
+//$date = new DateTime;
 
 //$myBirthday = (new DateTime)->setDate(2018, 8, 6)->setTime(06,25,00);//You can set yours date birth or any other date if it a future he count how many days till the event, if you set past it will count how many days past till that date.
 
-$myBirthday = (new DateTime(' 8 jun '))->setTime(06,25,00);
+//$myBirthday = (new DateTime(' 8 jun '))->setTime(06,25,00);
 
-$timeUntilBirthday = $date->diff($myBirthday);
+//$timeUntilBirthday = $date->diff($myBirthday);
 
-var_dump($timeUntilBirthday);
-var_dump($timeUntilBirthday->d);//date
-var_dump($timeUntilBirthday->days);
+//var_dump($timeUntilBirthday);
+//var_dump($timeUntilBirthday->d);//date
+//var_dump($timeUntilBirthday->days);
 
 //Think how can you put in some useful format
 //Example
-echo $timeUntilBirthday->format('%m moths %d days %h hours'); //%amount
+//echo $timeUntilBirthday->format('%m moths %d days %h hours'); //%amount
 
 //Comparisons
 
 /*
- *
+ * Compare two dates
  */
 
+//$date = new DateTime('2018-02-07 12:00:00');
+//$date2 = new DateTime('2018-02-9');
+
+//if ($date > $date2) {
+//    echo 'Yes';
+//}
+
+//Now checking specific parts of dates
+
+//$date = new DateTime('2018-02-07 12:00:00');
+
+//if((int) $date->format('Y') < 2019) {
+//    echo  'Yes.';
+//}
 
 //Timezones
 
 /*
- *
+ * Can be very hard to work with, set timezone
  */
+
+//$date = new DateTime;
+//
+//$date->setTimezone(new DateTimeZone('Europe/Belgrade'));
+
+//this in short way
+
+//$date = new DateTime('now', new DateTimeZone('Europe/London'));
+
+//var_dump($date);
+
+//var_dump(DateTimeZone::listIdentifiers());
+
+
+//Set timezone for application
+
+//$timezone = 'Europe/London';
+
+//date_default_timezone_set($timezone);
 
 
 //DateTime periods
