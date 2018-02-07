@@ -222,22 +222,77 @@
  *
  */
 
-time(); //unix timestamp
-microtime();//Microtime for generating random things, past a parameter bool true and you will get float, first is unix timestamp other is microtime
+//time(); //unix timestamp
+//microtime();//Microtime for generating random things, past a parameter bool true and you will get float, first is unix timestamp other is microtime
 
-date('d M Y');// you can use format
-checkdate(7, 31, 2018);//checking date values are true or false, always is good to check date before manipulate with it
+//date('d M Y');// you can use format
+//checkdate(7, 31, 2018);//checking date values are true or false, always is good to check date before manipulate with it
 
-foreach (timezone_identifiers_list() as $timezone) {
-    echo $timezone. '<br>';
-}
+//foreach (timezone_identifiers_list() as $timezone) {
+//    echo $timezone. '<br>';
+//}
 
 
 //Project: Human difference calculator
 
 /*
- *
+ * To do something and make useful of this things we just learned
+ * Lets make project it is good example how can you use it for your project
  */
+
+date_default_timezone_set('Europe/London');
+
+function diffForHumans(DateTime $date) {
+
+    $currentDate = new DateTime;
+
+    $difference = $currentDate->diff($date);
+
+    $unit = 'second';
+    $count = $difference->s;
+
+    switch (true) {
+
+        case $difference->y > 0:
+            $unit = 'year';
+            $count = $difference->y;
+            break;
+        case $difference->m > 0:
+            $unit = 'month';
+            $count = $difference->m;
+            break;
+        case $difference->d > 0:
+            $unit = 'day';
+            $count = $difference->d;
+            break;
+        case $difference->h > 0:
+            $unit = 'hour';
+            $count = $difference->h;
+            break;
+        case $difference->i > 0:
+            $unit = 'minute';
+            $count = $difference->i;
+            break;
+    }
+
+    if ($count === 0) {
+        $count = 1;
+    }
+
+    if ($count !== 1) {
+        $unit .= 's';
+    }
+
+    $inversion = $difference->invert === 0 ? 'from now' : 'ago';
+
+    return "{$count} {$unit} {$inversion}";
+}
+
+$date = new DateTime('+2 days');
+
+echo diffForHumans($date);
+
+
 
 
 
